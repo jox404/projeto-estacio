@@ -1,0 +1,21 @@
+body {
+  background-color: #555d74;
+}
+.bgCarousel {
+  background-image: url('https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+.sizeCarousel {
+  height: 400px;
+}
+.carousel {
+  width: 900px;
+  height: 300px;
+}
+.carouselContainer {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

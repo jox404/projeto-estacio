@@ -1,0 +1,26 @@
+.bgSignup {
+  height: 100vh;
+  width: 100%;
+  background-image: url(https://images.pexels.com/photos/11053665/pexels-photo-11053665.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+}
+.signupContainer {
+  max-width: 550px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.iconContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.signupIcon {
+  font-size: 30pt;
+  color: #00b4d8;
+}
+.linkSignup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

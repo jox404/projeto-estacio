@@ -1,0 +1,23 @@
+.containerProduct {
+  /* 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.productImg {
+  width: 300px;
+}
+.productPrice {
+  font-size: 30pt;
+}
+
+.productDescription {
+  font-size: 10pt;
+  text-align: justify;
+}
+h2 {
+  font-size: 15pt;
+}
