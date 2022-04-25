@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <!-- my css -->
     <link rel="stylesheet" href="./addProduct.css">
+
+    <script type="module" src="../index.mjs"></script>
 </head>
 
 <body>
@@ -29,19 +31,19 @@
                 <div class="row">
                     <!-- NOME DO PRUDUTO -->
                     <div class="col-12 my-2">
-                        <input type="text" class="form-control" placeholder="Name">
+                        <input type="text" class="form-control" placeholder="Name" id="name">
                     </div>
                     <!-- PRODUCT ID -->
                     <div class="col-12 my-2">
-                        <input type="text" class="form-control" placeholder="ProductId">
+                        <input type="text" class="form-control" placeholder="ProductId" id="productId">
                     </div>
                     <!-- PRICE -->
                     <div class="col-12 my-2">
-                        <input type="number" class="form-control" placeholder="Price">
+                        <input type="number" class="form-control" placeholder="Price" id="price">
                     </div>
                     <!-- AMOUNT -->
                     <div class="col-12 my-2">
-                        <input type="number" class="form-control" placeholder="Amount">
+                        <input type="number" class="form-control" placeholder="Amount" id="amount">
                     </div>
                     <!-- IMAGE -->
                     <div class="col-12 my-2">
@@ -58,7 +60,7 @@
                             placeholder="Tecno Info"></textarea>
                     </div>
                     <div class="btn-group">
-                        <button type="submit" class="btn btn-primary m-2">SUBMIT</button>
+                        <button type="submit" class="btn btn-primary m-2" id="btnSubmitProduct">SUBMIT</button>
                         <button type="reset" class="btn btn-danger m-2 ">RESET</button>
                     </div>
 
@@ -69,5 +71,6 @@
     </div>
 
 </body>
+
 
 </html>
