@@ -8,10 +8,13 @@ btnDrawer.addEventListener('click', (e) => {
         drawer.innerHTML = `
         <div class=''>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item list-group-item-dark">First item</li>
-                <li class="list-group-item list-group-item-dark">Second item</li>
-                <li class="list-group-item list-group-item-dark">Third item</li>
-                <li class="list-group-item list-group-item-dark"><button class='btn'>LOGIN</button></li>
+                <li class="list-group-item list-group-item-dark"><i class="bi bi-person"></i>Minha conta</li>
+                <li class="list-group-item list-group-item-dark"><i class="bi bi-bag-heart"></i>Meus pedidos</li>
+                <li class="list-group-item list-group-item-dark"><i class="bi bi-basket2"></i>Promoções</li>
+                <li class="list-group-item list-group-item-dark"><i class="bi bi-headset"></i>Atendimento</li>
+                <li class="list-group-item list-group-item-dark"> <i class="bi bi-box-arrow-in-right"></i><botton>Log-in</botton> </li>
+                <li class="list-group-item list-group-item-dark"><i class="bi bi-person-plus"></i> <botton>Register</botton> </li>
+               
             </ul>
         </div>`
         statusDrawer = 'open'
