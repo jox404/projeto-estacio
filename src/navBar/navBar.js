@@ -21,3 +21,28 @@ btnDrawer.addEventListener('click', (e) => {
     }
 
 })
+
+document.querySelectorAll('[nav-link]').forEach(e => {
+
+    e.addEventListener('click', (e) => {
+
+        e.preventDefault()
+
+        const section = document.getElementById('section')
+
+        fetch(e.target.href, { 'method': 'get' }).then((res) => {
+            return res.text()
+        }).then((res) => {
+            section.innerHTML = res
+        })
+    })
+
+
+})
+
+
+
+/* btnSoftware.addEventListener('click', (event) => {
+    event.preventDefault()
+    getInnerhtmlFromElement()
+}) */

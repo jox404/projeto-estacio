@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 //import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js';
-import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js';
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js';
 import { getFirestore, setDoc, doc } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -19,7 +19,10 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app)
 
-const btnSubmitProduct = document.getElementById('btnSubmitProduct')
+console.log(db)
+export { db, getAuth, onAuthStateChanged, getFirestore, setDoc, doc, createUserWithEmailAndPassword }
+
+/* const btnSubmitProduct = document.getElementById('btnSubmitProduct')
 
 const productId = document.getElementById('productId')
 const name = document.getElementById('name')
@@ -37,13 +40,13 @@ async function createProduct(productId, name, price, amount, description, tecnoI
         description: description,
         tecnoInfo: tecnoInfo,
     })
-    console.log('chamou')
+    console.log('ENVIADO')
 }
 
 btnSubmitProduct.addEventListener('click', (e) => {
     e.preventDefault()
     createProduct(productId.value, name.value, price.value, amount.value, description.value, tecnoInfo.value)
-})
+}) */
 
 
 
