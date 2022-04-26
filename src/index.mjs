@@ -5,7 +5,6 @@ import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword } from 'htt
 import { getFirestore, setDoc, doc } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
 // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAGTvA79pDUGHVQgNCoLxBEkyi-JLt1Uws",
@@ -19,36 +18,4 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app)
 
-console.log(db)
 export { db, getAuth, onAuthStateChanged, getFirestore, setDoc, doc, createUserWithEmailAndPassword }
-
-/* const btnSubmitProduct = document.getElementById('btnSubmitProduct')
-
-const productId = document.getElementById('productId')
-const name = document.getElementById('name')
-const price = document.getElementById('price')
-const amount = document.getElementById('amount')
-const description = document.getElementById('description')
-const tecnoInfo = document.getElementById('tecnoInfo')
-
-async function createProduct(productId, name, price, amount, description, tecnoInfo) {
-    await setDoc(doc(db, "cities", productId), {
-        productId: productId,
-        name: name,
-        price: price,
-        amount: amount,
-        description: description,
-        tecnoInfo: tecnoInfo,
-    })
-    console.log('ENVIADO')
-}
-
-btnSubmitProduct.addEventListener('click', (e) => {
-    e.preventDefault()
-    createProduct(productId.value, name.value, price.value, amount.value, description.value, tecnoInfo.value)
-}) */
-
-
-
-
-

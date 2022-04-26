@@ -22,6 +22,14 @@ btnDrawer.addEventListener('click', (e) => {
 
 })
 
+//FAZ A HOME APARECER DENTRO DA DIV SECTION ASSIM QUE A TELA CARREGA
+fetch('../home/home.html', { 'method': 'get' }).then((res) => {
+    return res.text()
+}).then((res) => {
+    section.innerHTML = res
+})
+
+
 document.querySelectorAll('[nav-link]').forEach(e => {
 
     e.addEventListener('click', (e) => {
@@ -36,8 +44,6 @@ document.querySelectorAll('[nav-link]').forEach(e => {
             section.innerHTML = res
         })
     })
-
-
 })
 
 
