@@ -45,10 +45,3 @@ document.querySelectorAll('[nav-link]').forEach(e => {
         })
     })
 })
-
-
-
-/* btnSoftware.addEventListener('click', (event) => {
-    event.preventDefault()
-    getInnerhtmlFromElement()
-}) */
