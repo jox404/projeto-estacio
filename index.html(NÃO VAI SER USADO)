@@ -20,7 +20,7 @@
 <body>
     <div id="section"></div>
 </body>
-<script>
+<script>*
     const section = document.getElementById('section')
     var bla = 'nada'
     fetch('src/navBar/navBar.html', { method: 'get' }).then((res) => {
