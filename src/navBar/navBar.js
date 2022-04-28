@@ -1,5 +1,6 @@
 const btnDrawer = document.getElementById('btnDrawer')
 const drawer = document.getElementById('drawer')
+const scripts = document.getElementById('scripts')
 
 var statusDrawer = 'closed'
 btnDrawer.addEventListener('click', (e) => {
@@ -41,7 +42,15 @@ document.querySelectorAll('[nav-link]').forEach(e => {
         fetch(e.target.href, { 'method': 'get' }).then((res) => {
             return res.text()
         }).then((res) => {
-            section.innerHTML = res
+            section.innerHTML = `${res}
+            
+            <script>
+        const dez = 10
+        console.log(dez)
+    </script>
+            
+            `
+            /* scripts.innerHTML = ` */
         })
     })
 })

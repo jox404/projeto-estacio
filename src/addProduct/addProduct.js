@@ -36,7 +36,7 @@ async function sendImages(image) {
 
 async function getImgUrl() {
     const storage = getStorage()
-    const imageRef = ref(storage, 'productsImages/' + 'teste')
+    const imageRef = ref(storage, 'productsImages/' + `${productId.value}`)
 
     getDownloadURL(imageRef)
         .then((urlImage) => {

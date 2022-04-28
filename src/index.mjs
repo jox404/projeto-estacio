@@ -2,7 +2,7 @@
 //import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js';
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js';
-import { getFirestore, setDoc, doc, collection, getDocs, orderBy, limit, startAfter, query, startAt, } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js'
+import { getFirestore, setDoc, doc, collection, getDocs, orderBy, limit, startAfter, query, startAt, getDoc } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js'
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-storage.js'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -19,4 +19,4 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app)
 
-export { db, getAuth, onAuthStateChanged, getFirestore, setDoc, doc, createUserWithEmailAndPassword, collection, getDocs, orderBy, limit, startAfter, query, startAt, getStorage, ref, uploadBytes, getDownloadURL }
+export { db, getAuth, onAuthStateChanged, getFirestore, setDoc, doc, createUserWithEmailAndPassword, collection, getDocs, orderBy, limit, startAfter, query, startAt, getStorage, ref, uploadBytes, getDownloadURL, getDoc }
