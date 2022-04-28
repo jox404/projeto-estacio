@@ -1,4 +1,4 @@
-import { db, setDoc, doc, getStorage, ref, uploadBytes, getDownloadURL } from '../index.mjs'
+import { db, setDoc, doc, getStorage, ref, uploadBytes, getDownloadURL, getDoc } from '../index.mjs'
 
 const btnSubmitProduct = document.getElementById('btnSubmitProduct')
 
@@ -11,8 +11,6 @@ const tecnoInfo = document.getElementById('tecnoInfo')
 const image = document.getElementById('images')
 
 
-
-
 async function createProduct(productId, name, price, amount, description, tecnoInfo, urlImage) {
     await setDoc(doc(db, "cities", productId), {
         productId: productId,
@@ -23,8 +21,9 @@ async function createProduct(productId, name, price, amount, description, tecnoI
         tecnoInfo: tecnoInfo,
         urlImage: urlImage,
     })
-    console.log('ENVIADO')
+    window.alert("PRODUTO ADCIONADO")
 }
+
 
 async function sendImages(image) {
     const storage = getStorage();
@@ -33,7 +32,6 @@ async function sendImages(image) {
         console.log('sendImages', snapshot)
     })
 }
-
 async function getImgUrl() {
     const storage = getStorage()
     const imageRef = ref(storage, 'productsImages/' + `${productId.value}`)
@@ -45,8 +43,55 @@ async function getImgUrl() {
         })
 }
 
-btnSubmitProduct.addEventListener('click', (e) => {
+btnSubmitProduct.addEventListener('click', async (e) => {
     e.preventDefault()
-    sendImages(image.files[0])
-    getImgUrl()
-}) 
+
+    const inputs = document.querySelectorAll('input')
+
+    var emptyInput = false
+    var duplicateId = false
+
+    await inputs.forEach(input => {
+        if (input.value == '') {
+            emptyInput = true
+        }
+    })
+
+    if (emptyInput == true) {
+        window.alert('um dos campos está vazio')
+    } else {
+        console.log('tudo preenchido')
+
+        const docRef = doc(db, "cities", `${productId.value}`)
+
+        getDoc(docRef).then((res) => {
+            return res
+        }).then((res) => {
+            const id = res._document
+            if (id === null) {
+                console.log('pode enviar')
+                sendImages(image.files[0]).then(() => {
+                    getImgUrl()
+                })
+            } else {
+                duplicateId = true
+                console.log('id duplicado')
+            }
+        })
+
+
+    }
+
+
+})
+
+
+
+//NAV BAR
+const navBar = document.getElementById('navBar')
+fetch('../navBar/navBar.html', { 'method': 'get' }).then((res) => {
+    return res.text()
+}).then((res) => {
+    console.log(navBar)
+    navBar.innerHTML = res
+})

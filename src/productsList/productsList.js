@@ -1,61 +1,53 @@
 import { collection, db, getDocs, orderBy, limit, startAfter, query, startAt, doc, getDoc } from '../index.mjs'
 
+
+//CARREGAR LISTA DE PRODUTOS
 const list = document.getElementById('list')
 
 const querySnapshot = await getDocs(collection(db, 'cities'))
 
-/* querySnapshot.forEach(doc => {
-
-    
+querySnapshot.forEach(doc => {
     const data = doc._document.data.value.mapValue.fields
 
-    var itemList = document.createElement('li')
-    itemList.innerHTML = `${data.price.stringValue}`
+    const product = `
+        <th scope="row">${data.name.stringValue}</th>
+        <td>${data.productId.stringValue}</td>
+        <td>${data.price.stringValue} R$</td>
+        <td>${data.amount.stringValue}</td>
+        <td>
+            <button type="button" class="btn btn-warning btnBuyProduct">COMPRAR</button>
+            <button type="button" class="btn btn-danger" style="margin-left: 50px;">REMOVER</button>
+        </td>
+    `
+    var itemList = document.createElement('tr')
+    itemList.innerHTML = product
 
     list.appendChild(itemList)
-}); */
-
-
-/* const first = query(collection(db, 'cities'), orderBy("price"), limit(1))
-const documentSnapshots = await getDocs(first) */
-
-/* const lattVisible = documentSnapshots.docs[documentSnapshots.docs.legth - 1]
-console.log("last", lattVisible) */
-
-/* const next = query(collection(db, "cities"),
-    orderBy('price'),
-    startAt(6),
-    limit(5)); */
-
-/* console.log(documentSnapshots.docs) */
-
-
+});
 
 //COMPRAR PRODUTO
 
-const btnBuyProduct = document.getElementById('btnBuyProduct01')
+const btnBuyProduct = document.getElementsByClassName(`btnBuyProduct`)
 
-btnBuyProduct.addEventListener('click', async (e) => {
-    e.preventDefault()
+for (var i = 0; i < btnBuyProduct.length; i++) {
 
+    btnBuyProduct[i].addEventListener('click', async (e) => {
+        e.preventDefault()
 
-    const setProductBuy = (productData) => {
-        const data = {
-            amount: productData.amount.stringValue,
-            description: productData.description.stringValue,
-            name: productData.name.stringValue,
-            price: productData.price.stringValue,
-            productId: productData.productId.stringValue,
-            tecnoInfo: productData.tecnoInfo.stringValue,
-            urlImage: productData.urlImage.stringValue,
-        }
+        const container = document.getElementById('container')
 
-        fetch('../buyProduct/buyProduct.html', { method: 'get' }).then((res) => {
-            /* console.log(res) */
-            return res.text()
-        }).then((res) => {
-            /* console.log(res) */
-            list.innerHTML = ` <div id="navBar"></div>
+        const setProductBuy = (productData) => {
+            const data = {
+                amount: productData.amount.stringValue,
+                description: productData.description.stringValue,
+                name: productData.name.stringValue,
+                price: productData.price.stringValue,
+                productId: productData.productId.stringValue,
+                tecnoInfo: productData.tecnoInfo.stringValue,
+                urlImage: productData.urlImage.stringValue,
+            }
+
+            container.innerHTML = ` <div id="navBar"></div>
             <div class="containerProduct md-1">
                 <div class="row">
                     <div class="col-12 md-3">
@@ -89,19 +81,28 @@ btnBuyProduct.addEventListener('click', async (e) => {
                     </div>
                 </div>
             </div>`
+
+
+        }
+
+
+        const docRef = doc(db, "cities", "0007")
+
+        getDoc(docRef).then((res) => {
+            return res._document.data.value.mapValue.fields
+        }).then((res) => {
+            console.log(res)
+            setProductBuy(res)
         })
 
-    }
 
-
-    const docRef = doc(db, "cities", "0001")
-
-    getDoc(docRef).then((res) => {
-        return res._document.data.value.mapValue.fields
-    }).then((res) => {
-        console.log(res)
-        setProductBuy(res)
     })
+}
 
-
+//NAVBAR
+const navBar = document.getElementById('navBar')
+fetch('../navBar/navBar.html', { 'method': 'get' }).then((res) => {
+    return res.text()
+}).then((res) => {
+    navBar.innerHTML = res
 })
