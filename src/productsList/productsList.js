@@ -101,7 +101,7 @@ for (var i = 0; i < btnBuyProduct.length; i++) {
 
 //NAVBAR
 const navBar = document.getElementById('navBar')
-fetch('../navBar/navBar.html', { 'method': 'get' }).then((res) => {
+fetch('../../src/navBar/navBar.html', { 'method': 'get' }).then((res) => {
     return res.text()
 }).then((res) => {
     navBar.innerHTML = res
