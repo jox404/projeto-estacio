@@ -4,18 +4,23 @@ import { collection, db, getDocs, orderBy, limit, startAfter, query, startAt, do
 //CARREGAR LISTA DE PRODUTOS
 const list = document.getElementById('list')
 
-const querySnapshot = await getDocs(collection(db, 'cities'))
+const querySnapshot = await getDocs(collection(db, 'products'))
+
+
 
 querySnapshot.forEach(doc => {
     const data = doc._document.data.value.mapValue.fields
 
+
+
+    console.log(data)
     const product = `
         <th scope="row">${data.name.stringValue}</th>
         <td>${data.productId.stringValue}</td>
         <td>${data.price.stringValue} R$</td>
         <td>${data.amount.stringValue}</td>
         <td>
-            <button type="button" class="btn btn-warning btnBuyProduct">COMPRAR</button>
+            <button type="button" class="btn btn-warning btnBuyProduct" id="${data.productId.stringValue}">COMPRAR</button>
             <button type="button" class="btn btn-danger" style="margin-left: 50px;">REMOVER</button>
         </td>
     `
@@ -33,6 +38,7 @@ for (var i = 0; i < btnBuyProduct.length; i++) {
 
     btnBuyProduct[i].addEventListener('click', async (e) => {
         e.preventDefault()
+        console.log(e.target.id)
 
         const container = document.getElementById('container')
 
@@ -81,12 +87,9 @@ for (var i = 0; i < btnBuyProduct.length; i++) {
                     </div>
                 </div>
             </div>`
-
-
         }
 
-
-        const docRef = doc(db, "cities", "0007")
+        const docRef = doc(db, "products", e.target.id)
 
         getDoc(docRef).then((res) => {
             return res._document.data.value.mapValue.fields
@@ -94,6 +97,7 @@ for (var i = 0; i < btnBuyProduct.length; i++) {
             console.log(res)
             setProductBuy(res)
         })
+
 
 
     })

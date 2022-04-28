@@ -1,0 +1,14 @@
+.imgCarosel {
+  max-height: 500px;
+  width: 800px;
+}
+
+.carouselPosition {
+  height: 500px !important;
+  width: 100% !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imgCaption {
+}

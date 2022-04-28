@@ -12,7 +12,7 @@ const image = document.getElementById('images')
 
 
 async function createProduct(productId, name, price, amount, description, tecnoInfo, urlImage) {
-    await setDoc(doc(db, "cities", productId), {
+    await setDoc(doc(db, "products", productId), {
         productId: productId,
         name: name,
         price: price,
@@ -62,7 +62,7 @@ btnSubmitProduct.addEventListener('click', async (e) => {
     } else {
         console.log('tudo preenchido')
 
-        const docRef = doc(db, "cities", `${productId.value}`)
+        const docRef = doc(db, "products", `${productId.value}`)
 
         getDoc(docRef).then((res) => {
             return res

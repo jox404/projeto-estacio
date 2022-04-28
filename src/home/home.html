@@ -13,46 +13,54 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- icones -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
+
+    <!-- my css -->
+    <link rel="stylesheet" href="./home.css">
 </head>
 
 <body class="bg-white">
     <nav id="navBar"></nav>
-    <Section role="main" class="bg-white">
-        <div id="carousel_home" class="carousel slide" data-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carousel_home" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#carousel_home" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#carousel_home" data-bs-slide-to="2"></button>
-            </div>
-
-            <!-- carousel -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" height="600px"
-                        src="https://images.pexels.com/photos/3693280/pexels-photo-3693280.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                        alt="first-slide" />
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" height="600px"
-                        src="https://images.pexels.com/photos/4272232/pexels-photo-4272232.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                        alt="second-slide" />
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" height="600px"
-                        src="https://images.pexels.com/photos/60130/pexels-photo-60130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                        alt="third-slide" />
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carousel_home" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carousel_home" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
-
-
+    <div id="carousel_home" class="carousel slide  carouselPosition" data-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carousel_home" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carousel_home" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carousel_home" data-bs-slide-to="2"></button>
         </div>
 
+        <!-- carousel -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100 imgCarosel" height="800px" src="./img/xbox-controle.jpg" alt="first-slide" />
+                <div class="carousel-caption imgCaption">
+                    <h3>As Melhores Ofertas Para Você Gamer</h3>
+                    <p>We had such a great time in LA!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100 imgCarosel" src="./img/pexels-photo-5750001.jpeg" alt="second-slide" />
+                <div class="carousel-caption imgCaption">
+                    <h3>As Melhores Ofertas Para Você Gamer</h3>
+                    <p>We had such a great time in LA!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100 imgCarosel" src="./img/macbook-air-og-202011.jfif" alt="third-slide" />
+                <div class="carousel-caption imgCaption">
+                    <h3>As Melhores Ofertas Para Você Gamer</h3>
+                    <p>We had such a great time in LA!</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel_home" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel_home" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+
+    </div>
+    <Section role="main" class="bg-white">
         <div class="container marketing">
             <div class="row">
                 <div class="col-lg-4">
