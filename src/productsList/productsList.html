@@ -38,9 +38,73 @@
             <tbody id="list">
             </tbody>
         </table>
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal Heading</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="containerForm">
+
+                            <form action="">
+                                <div class="row">
+                                    <!-- NOME DO PRUDUTO -->
+                                    <div class="col-12 my-2">
+                                        <input type="text" class="form-control" placeholder="Name" id="name">
+                                    </div>
+                                    <!-- PRODUCT ID -->
+                                    <div class="col-12 my-2">
+                                        <input type="text" class="form-control" placeholder="ProductId" id="productId"
+                                            disabled>
+                                    </div>
+                                    <!-- PRICE -->
+                                    <div class="col-12 my-2">
+                                        <input type="number" class="form-control" placeholder="Price" id="price">
+                                    </div>
+                                    <!-- AMOUNT -->
+                                    <div class="col-12 my-2">
+                                        <input type="number" class="form-control" placeholder="Amount" id="amount">
+                                    </div>
+                                    <!-- IMAGE -->
+                                    <div class="col-12 my-2">
+                                        <input type="file" class="form-control" placeholder="Image" id="images">
+                                    </div>
+                                    <!-- DESCRIPTION -->
+                                    <div class="col-12 my-2">
+                                        <textarea class="form-control" id="description" rows="3"
+                                            placeholder="Description"></textarea>
+                                    </div>
+                                    <!-- TECNO INFO -->
+                                    <div class="col-12 my-2">
+                                        <textarea class="form-control" id="tecnoInfo" rows="3"
+                                            placeholder="Tecno Info"></textarea>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button type="submit" class="btn btn-primary m-2"
+                                            id="btnSubmitProduct">SUBMIT</button>
+                                        <button type="reset" class="btn btn-danger m-2 ">RESET</button>
+                                    </div>
+
+                                </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="./productsList.js" type="module"></script>
-
 
 </html>

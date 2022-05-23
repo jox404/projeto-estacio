@@ -1,5 +1,6 @@
 import { collection, db, getDocs, orderBy, limit, startAfter, query, startAt, doc, getDoc } from '../index.mjs'
-
+import { deleteProduct } from './deleteProduct.js';
+import { updateProduct } from './updateProduct.js'
 
 //CARREGAR LISTA DE PRODUTOS
 const list = document.getElementById('list')
@@ -11,9 +12,6 @@ const querySnapshot = await getDocs(collection(db, 'products'))
 querySnapshot.forEach(doc => {
     const data = doc._document.data.value.mapValue.fields
 
-
-
-    console.log(data)
     const product = `
         <th scope="row">${data.name.stringValue}</th>
         <td>${data.productId.stringValue}</td>
@@ -21,7 +19,8 @@ querySnapshot.forEach(doc => {
         <td>${data.amount.stringValue}</td>
         <td>
             <button type="button" class="btn btn-warning btnBuyProduct" id="${data.productId.stringValue}">COMPRAR</button>
-            <button type="button" class="btn btn-danger" style="margin-left: 50px;">REMOVER</button>
+            <button type="button" class="btn btn-danger btnDeleteProduct " id="${data.productId.stringValue}" >REMOVER</button>
+            <button type="button" class="btn btn-primary btnUpdateProduct " id="${data.productId.stringValue}" data-bs-toggle="modal" data-bs-target="#myModal">UPDATE</button>
         </td>
     `
     var itemList = document.createElement('tr')
@@ -33,27 +32,26 @@ querySnapshot.forEach(doc => {
 //COMPRAR PRODUTO
 
 const btnBuyProduct = document.getElementsByClassName(`btnBuyProduct`)
+const renderProducts = async () => {
+    for (var i = 0; i < btnBuyProduct.length; i++) {
 
-for (var i = 0; i < btnBuyProduct.length; i++) {
+        btnBuyProduct[i].addEventListener('click', async (e) => {
+            e.preventDefault()
 
-    btnBuyProduct[i].addEventListener('click', async (e) => {
-        e.preventDefault()
-        console.log(e.target.id)
+            const container = document.getElementById('container')
 
-        const container = document.getElementById('container')
+            const setProductBuy = (productData) => {
+                const data = {
+                    amount: productData.amount.stringValue,
+                    description: productData.description.stringValue,
+                    name: productData.name.stringValue,
+                    price: productData.price.stringValue,
+                    productId: productData.productId.stringValue,
+                    tecnoInfo: productData.tecnoInfo.stringValue,
+                    urlImage: productData.urlImage.stringValue,
+                }
 
-        const setProductBuy = (productData) => {
-            const data = {
-                amount: productData.amount.stringValue,
-                description: productData.description.stringValue,
-                name: productData.name.stringValue,
-                price: productData.price.stringValue,
-                productId: productData.productId.stringValue,
-                tecnoInfo: productData.tecnoInfo.stringValue,
-                urlImage: productData.urlImage.stringValue,
-            }
-
-            container.innerHTML = ` <div id="navBar"></div>
+                container.innerHTML = ` <div id="navBar"></div>
             <div class="containerProduct md-1">
                 <div class="row">
                     <div class="col-12 md-3">
@@ -87,21 +85,26 @@ for (var i = 0; i < btnBuyProduct.length; i++) {
                     </div>
                 </div>
             </div>`
-        }
+            }
 
-        const docRef = doc(db, "products", e.target.id)
+            const docRef = doc(db, "products", e.target.id)
 
-        getDoc(docRef).then((res) => {
-            return res._document.data.value.mapValue.fields
-        }).then((res) => {
-            console.log(res)
-            setProductBuy(res)
+            getDoc(docRef).then((res) => {
+                return res._document.data.value.mapValue.fields
+            }).then((res) => {
+                console.log(res)
+                setProductBuy(res)
+            })
+
         })
-
-
-
-    })
+    }
 }
+await renderProducts().then(() => {
+    deleteProduct()
+    updateProduct()
+})
+
+
 
 //NAVBAR
 const navBar = document.getElementById('navBar')
