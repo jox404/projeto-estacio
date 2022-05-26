@@ -2,6 +2,7 @@ import { db, setDoc, doc, getStorage, ref, uploadBytes, getDownloadURL, getDoc }
 
 const btnSubmitProduct = document.getElementById('btnSubmitProduct')
 
+const formAddProducts = document.getElementById('formAddProducts')
 const productId = document.getElementById('productId')
 const name = document.getElementById('name')
 const price = document.getElementById('price')
@@ -22,6 +23,10 @@ async function createProduct(productId, name, price, amount, description, tecnoI
         urlImage: urlImage,
     })
     window.alert("PRODUTO ADCIONADO")
+    const clearInput = document.querySelectorAll('input')
+    clearInput.forEach((input) => {
+        input.value = ''
+    })
 }
 
 
@@ -69,7 +74,6 @@ btnSubmitProduct.addEventListener('click', async (e) => {
             if (id === null) {
                 sendImages(image.files[0]).then(() => {
                     getImgUrl()
-                    window.alert('Enviado')
                 })
             } else {
                 duplicateId = true
@@ -90,6 +94,5 @@ const navBar = document.getElementById('navBar')
 fetch('../navBar/navBar.html', { 'method': 'get' }).then((res) => {
     return res.text()
 }).then((res) => {
-    console.log(navBar)
     navBar.innerHTML = res
 })
