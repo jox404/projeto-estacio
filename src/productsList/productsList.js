@@ -19,7 +19,11 @@ querySnapshot.forEach(doc => {
         <td>${data.amount.stringValue}</td>
         <td>
             <button type="button" class="btn btn-warning btnBuyProduct" id="${data.productId.stringValue}">COMPRAR</button>
+        </td>
+        <td>
             <button type="button" class="btn btn-danger btnDeleteProduct " id="${data.productId.stringValue}" >REMOVER</button>
+        </td>
+        <td>
             <button type="button" class="btn btn-primary btnUpdateProduct " id="${data.productId.stringValue}" data-bs-toggle="modal" data-bs-target="#myModal">UPDATE</button>
         </td>
     `

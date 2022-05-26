@@ -19,4 +19,8 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app)
 
-export { db, getAuth, onAuthStateChanged, getFirestore, setDoc, doc, createUserWithEmailAndPassword, collection, getDocs, orderBy, limit, startAfter, query, startAt, getStorage, ref, uploadBytes, getDownloadURL, getDoc, deleteDoc, updateDoc }
+export {
+    db, getAuth, onAuthStateChanged, getFirestore, setDoc, doc, createUserWithEmailAndPassword,
+    collection, getDocs, orderBy, limit, startAfter, query, startAt, getStorage, ref,
+    uploadBytes, getDownloadURL, getDoc, deleteDoc, updateDoc
+}

@@ -38,7 +38,6 @@ async function getImgUrl() {
 
     getDownloadURL(imageRef)
         .then((urlImage) => {
-            console.log('urlImage', urlImage)
             createProduct(productId.value, name.value, price.value, amount.value, description.value, tecnoInfo.value, urlImage)
         })
 }
@@ -60,7 +59,6 @@ btnSubmitProduct.addEventListener('click', async (e) => {
     if (emptyInput == true) {
         window.alert('um dos campos está vazio')
     } else {
-        console.log('tudo preenchido')
 
         const docRef = doc(db, "products", `${productId.value}`)
 
@@ -69,13 +67,13 @@ btnSubmitProduct.addEventListener('click', async (e) => {
         }).then((res) => {
             const id = res._document
             if (id === null) {
-                console.log('pode enviar')
                 sendImages(image.files[0]).then(() => {
                     getImgUrl()
+                    window.alert('Enviado')
                 })
             } else {
                 duplicateId = true
-                console.log('id duplicado')
+                window.alert('id duplicado')
             }
         })
 
